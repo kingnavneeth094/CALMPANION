@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Star, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
@@ -101,9 +102,11 @@ export default function MeetDoctors() {
                       {doctor.location}
                     </div>
                     <div className="flex gap-2">
+                      <Link href="/book-appointment">
                       <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg border-2 border-orange-500 text-orange-500 font-semibold hover:bg-orange-50 dark:hover:bg-orange-950 transition">
                         <Calendar className="w-4 h-4" /> Schedule
                       </button>
+                      </Link>
                       <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
                         View Profile <ArrowRight className="w-4 h-4" />
                       </button>
