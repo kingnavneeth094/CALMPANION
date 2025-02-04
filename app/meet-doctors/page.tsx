@@ -60,16 +60,6 @@ export default function MeetDoctors() {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
               Connect with experienced therapists, counselors, and psychiatrists dedicated to your mental well-being.
             </p>
-            <div className="flex justify-center gap-4">
-              <input
-                type="text"
-                placeholder="Search by name or specialty"
-                className="w-full max-w-md px-4 py-3 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-orange-500"
-              />
-              <button className="bg-orange-500 px-6 py-3 text-white font-semibold rounded-lg hover:bg-orange-600 transition">
-                Search
-              </button>
-            </div>
           </div>
         </section>
 
