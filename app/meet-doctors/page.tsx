@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import { Star, MapPin, Calendar, ArrowRight } from 'lucide-react';
@@ -118,7 +117,7 @@ export default function MeetDoctors() {
               We have more mental health professionals available. Let us help you find the perfect match.
             </p>
             <button className="bg-orange-500 px-8 py-3 text-white font-semibold rounded-lg hover:bg-orange-600 transition">
-              View All Professionals
+              <Link href="/meet-doctors" >View All Professionals</Link>
             </button>
           </div>
         </section>
