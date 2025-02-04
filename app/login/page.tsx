@@ -1,23 +1,25 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { ArrowRight, Mail, Lock } from 'lucide-react';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import React from "react";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { ArrowRight, Mail, Lock } from "lucide-react";
 
 const loginSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
-  password: z.string().min(8, 'Password must be at least 8 characters'),
+  email: z.string().email("Please enter a valid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
 type LoginForm = z.infer<typeof loginSchema>;
 
 export default function Login() {
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginForm>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
   });
 
@@ -28,13 +30,13 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <Header />
-      
       <main className="flex-grow flex items-center justify-center px-4 py-20">
         <div className="w-full max-w-md">
           <div className="bg-card p-8 rounded-2xl shadow-lg">
-            <h1 className="text-3xl font-bold text-center mb-8">Welcome Back</h1>
-            
+            <h1 className="text-3xl font-bold text-center mb-8">
+              Welcome Back
+            </h1>
+
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-muted-foreground mb-2">
@@ -42,7 +44,7 @@ export default function Login() {
                 </label>
                 <div className="relative">
                   <input
-                    {...register('email')}
+                    {...register("email")}
                     type="email"
                     className="w-full px-4 py-3 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-orange-500 pl-10"
                     placeholder="Enter your email"
@@ -50,7 +52,9 @@ export default function Login() {
                   <Mail className="w-5 h-5 text-muted-foreground absolute left-3 top-3.5" />
                 </div>
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.email.message}
+                  </p>
                 )}
               </div>
 
@@ -60,7 +64,7 @@ export default function Login() {
                 </label>
                 <div className="relative">
                   <input
-                    {...register('password')}
+                    {...register("password")}
                     type="password"
                     className="w-full px-4 py-3 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-orange-500 pl-10"
                     placeholder="Enter your password"
@@ -68,16 +72,26 @@ export default function Login() {
                   <Lock className="w-5 h-5 text-muted-foreground absolute left-3 top-3.5" />
                 </div>
                 {errors.password && (
-                  <p className="mt-1 text-sm text-red-500">{errors.password.message}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.password.message}
+                  </p>
                 )}
               </div>
 
               <div className="flex items-center justify-between">
                 <label className="flex items-center">
-                  <input type="checkbox" className="rounded border-gray-300 text-orange-500 focus:ring-orange-500" />
-                  <span className="ml-2 text-sm text-muted-foreground">Remember me</span>
+                  <input
+                    type="checkbox"
+                    className="rounded border-gray-300 text-orange-500 focus:ring-orange-500"
+                  />
+                  <span className="ml-2 text-sm text-muted-foreground">
+                    Remember me
+                  </span>
                 </label>
-                <Link href="/forgot-password" className="text-sm text-orange-500 hover:text-orange-600">
+                <Link
+                  href="/forgot-password"
+                  className="text-sm text-orange-500 hover:text-orange-600"
+                >
                   Forgot password?
                 </Link>
               </div>
@@ -91,16 +105,17 @@ export default function Login() {
             </form>
 
             <p className="mt-6 text-center text-sm text-muted-foreground">
-              Don't have an account?{' '}
-              <Link href="/register" className="text-orange-500 hover:text-orange-600 font-semibold">
+              Don't have an account?{" "}
+              <Link
+                href="/register"
+                className="text-orange-500 hover:text-orange-600 font-semibold"
+              >
                 Sign up
               </Link>
             </p>
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

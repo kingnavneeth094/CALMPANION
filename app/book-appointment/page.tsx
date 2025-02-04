@@ -1,36 +1,43 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Calendar as CalendarIcon, Clock, MapPin, ArrowRight } from 'lucide-react';
-import { format } from 'date-fns';
-import { Calendar } from '@/components/ui/calendar';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import React, { useState } from "react";
+import {
+  Calendar as CalendarIcon,
+  Clock,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
+import { format } from "date-fns";
+import { Calendar } from "@/components/ui/calendar";
 
 const timeSlots = [
-  "09:00 AM", "10:00 AM", "11:00 AM",
-  "02:00 PM", "03:00 PM", "04:00 PM"
+  "09:00 AM",
+  "10:00 AM",
+  "11:00 AM",
+  "02:00 PM",
+  "03:00 PM",
+  "04:00 PM",
 ];
 
 const appointmentTypes = [
   {
-    id: 'initial',
-    name: 'Initial Consultation',
-    duration: '60 min',
-    price: '$150'
+    id: "initial",
+    name: "Initial Consultation",
+    duration: "60 min",
+    price: "$150",
   },
   {
-    id: 'followup',
-    name: 'Follow-up Session',
-    duration: '45 min',
-    price: '$100'
+    id: "followup",
+    name: "Follow-up Session",
+    duration: "45 min",
+    price: "$100",
   },
   {
-    id: 'urgent',
-    name: 'Urgent Care',
-    duration: '30 min',
-    price: '$120'
-  }
+    id: "urgent",
+    name: "Urgent Care",
+    duration: "30 min",
+    price: "$120",
+  },
 ];
 
 export default function BookAppointment() {
@@ -40,17 +47,14 @@ export default function BookAppointment() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <Header />
-      
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="pt-32 pb-16 px-4">
           <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">
-              Book Your Appointment
-            </h1>
+            <h1 className="text-5xl font-bold mb-6">Book Your Appointment</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Schedule a session with our mental health professionals at your convenience.
+              Schedule a session with our mental health professionals at your
+              convenience.
             </p>
           </div>
         </section>
@@ -62,8 +66,10 @@ export default function BookAppointment() {
               {/* Calendar and Time Selection */}
               <div className="space-y-8">
                 <div className="bg-card p-6 rounded-2xl shadow-lg">
-                  <h2 className="text-2xl font-bold mb-6">Select Date & Time</h2>
-                  
+                  <h2 className="text-2xl font-bold mb-6">
+                    Select Date & Time
+                  </h2>
+
                   <div className="mb-6">
                     <Calendar
                       mode="single"
@@ -77,7 +83,7 @@ export default function BookAppointment() {
                     <div>
                       <h3 className="font-semibold mb-4 flex items-center gap-2">
                         <Clock className="w-4 h-4" />
-                        Available Times for {format(date, 'MMMM d, yyyy')}
+                        Available Times for {format(date, "MMMM d, yyyy")}
                       </h3>
                       <div className="grid grid-cols-2 gap-3">
                         {timeSlots.map((time) => (
@@ -85,9 +91,10 @@ export default function BookAppointment() {
                             key={time}
                             onClick={() => setSelectedTime(time)}
                             className={`p-3 rounded-lg border-2 text-center transition
-                              ${selectedTime === time
-                                ? 'border-orange-500 bg-orange-50 dark:bg-orange-950'
-                                : 'border-border hover:border-orange-500'
+                              ${
+                                selectedTime === time
+                                  ? "border-orange-500 bg-orange-50 dark:bg-orange-950"
+                                  : "border-border hover:border-orange-500"
                               }`}
                           >
                             {time}
@@ -103,24 +110,29 @@ export default function BookAppointment() {
               <div className="space-y-8">
                 <div className="bg-card p-6 rounded-2xl shadow-lg">
                   <h2 className="text-2xl font-bold mb-6">Appointment Type</h2>
-                  
+
                   <div className="space-y-4 mb-8">
                     {appointmentTypes.map((type) => (
                       <button
                         key={type.id}
                         onClick={() => setSelectedType(type.id)}
                         className={`w-full p-4 rounded-lg border-2 text-left transition
-                          ${selectedType === type.id
-                            ? 'border-orange-500 bg-orange-50 dark:bg-orange-950'
-                            : 'border-border hover:border-orange-500'
+                          ${
+                            selectedType === type.id
+                              ? "border-orange-500 bg-orange-50 dark:bg-orange-950"
+                              : "border-border hover:border-orange-500"
                           }`}
                       >
                         <div className="flex justify-between items-center">
                           <div>
                             <h3 className="font-semibold">{type.name}</h3>
-                            <p className="text-sm text-muted-foreground">{type.duration}</p>
+                            <p className="text-sm text-muted-foreground">
+                              {type.duration}
+                            </p>
                           </div>
-                          <div className="text-lg font-semibold">{type.price}</div>
+                          <div className="text-lg font-semibold">
+                            {type.price}
+                          </div>
                         </div>
                       </button>
                     ))}
@@ -154,7 +166,9 @@ export default function BookAppointment() {
                     <div>
                       <h3 className="font-semibold mb-2">Location Options</h3>
                       <p className="text-muted-foreground">
-                        Choose between in-person visits at our clinic or convenient online video consultations from the comfort of your home.
+                        Choose between in-person visits at our clinic or
+                        convenient online video consultations from the comfort
+                        of your home.
                       </p>
                     </div>
                   </div>
@@ -164,8 +178,6 @@ export default function BookAppointment() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

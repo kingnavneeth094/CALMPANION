@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { Heart, ArrowRight, Coffee, Gift, Coins } from "lucide-react";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+
 
 export default function Donate() {
   const donationAmounts = [10, 25, 50, 100];
@@ -17,8 +16,6 @@ export default function Donate() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <Header />
-
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="pt-32 pb-16 px-4">
@@ -131,8 +128,6 @@ export default function Donate() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -2,8 +2,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { Star, MapPin, Calendar, ArrowRight } from 'lucide-react';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
 
 const doctors = [
   {
@@ -46,9 +44,7 @@ const doctors = [
 
 export default function MeetDoctors() {
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <Header />
-      
+    <div className="min-h-screen bg-background flex flex-col">      
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="pt-32 pb-16 px-4">
@@ -122,8 +118,6 @@ export default function MeetDoctors() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }
